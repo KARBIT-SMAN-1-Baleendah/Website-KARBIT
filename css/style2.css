@@ -1,0 +1,363 @@
+:root{
+  --primary: #214246;
+  --bg: #ffffff;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  font-family: 'Open Sans';
+  background-color: var(--bg);
+  color: #545454;
+}
+
+/* Navbar */
+.navbar{
+  background-color:#ffffff;
+  border-radius: 5px; /* Membuat sudut sedikit melengkung */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 7%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  opacity: 0; /* Mulai dalam keadaan tersembunyi */
+  transform: translateY(-50px); /* Geser ke atas */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Efek transisi */
+}
+
+.navbar-visible {
+  opacity: 1; /* Tampilkan navbar */
+  transform: translateY(0); /* Posisi normal */
+}
+
+.navbar .navbar-logo{
+  display: flex; /* Pastikan logo dan teks "KARBIT" sejajar */
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.navbar .navbar-logo img {
+  height: 50px; /* Tinggi logo */
+  margin-right: 8px; /* Jarak antara logo dan teks "KARBIT" */
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 1rem; /* Ukuran teks KARBIT */
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 0.5rem; /* Ukuran teks subtitle */
+  color: black;
+}
+
+.navbar .navbar-nav a{
+  color: var(--primary);
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 2rem;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.navbar .navbar-nav a:hover {
+  color: #34a255; /* Warna teks berubah */
+  border-bottom: none; /* Hapus garis bawah saat hover */
+}
+
+/* Indikator halaman aktif (garis bawah) */
+.navbar .navbar-nav a.active {
+  border-bottom: 2px solid #214246; /* Garis bawah untuk menu aktif */
+  transition: border-bottom 1s ease-in-out;
+}
+
+.navbar .navbar-extra a{
+  color: var(--primary);
+  margin: 0 0.5rem;
+}
+
+.navbar .navbar-extra a:hover{
+  color:#34a255;
+}
+
+#hamburger-menu{
+  display: none;
+}
+
+/* Footer */
+footer {
+  background-color: #0d1b2a; /* Warna latar footer */
+  color: #fff; /* Warna teks */
+  padding: 40px 50px;
+  display: flex;
+  flex-wrap: wrap; /* Responsif untuk layar kecil */
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.footer-left {
+  flex-direction: column; /* Ubah ke kolom agar divider tampil di bawah */
+  align-items: flex-start; /* Ratakan konten ke kiri */
+  gap: 15px; /* Tambahkan jarak antar elemen */
+}
+
+.footer-left p {
+  font-size: 14px;
+  margin: 0; /* Hapus margin default pada paragraf */
+  line-height: 1.5;
+  font-weight: 200;
+}
+
+.logo-address {
+  display: flex;
+  align-items: center;
+  gap: 30px; /* Jarak antara logo dan teks alamat */
+}
+
+.footer-logo {
+  width: 80px;
+}
+
+.footer-middle {
+  flex: 1;
+  margin:0;
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.social-icons {
+  justify-content: center;
+  display: flex;
+  font-size: 25px;
+  gap: 25px; /* Jarak antar ikon media sosial */
+}
+
+.social-icons a {
+  display: flex;
+  justify-content: center;
+  align-items: 50px;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s ease; /* Animasi */
+}
+
+.social-icons a:hover {
+  color: #fff00f; /* Highlight color on hover */
+}
+
+.footer-right {
+  flex: 1;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.footer-right h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.footer-right ul {
+  margin-right: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.footer-right ul li {
+  margin-right: 20px;
+  margin-bottom: 8px;
+}
+
+.footer-right ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.footer-right ul li a:hover {
+  color: #fff00f;
+}
+
+.footer-bottom {
+  text-align: right;
+  font-size: 14px;
+  margin-top: auto;
+  margin-left: auto;
+}
+
+.footer-bottom p {
+  margin: 2px 0;
+  font-weight: 200;
+}
+
+.divider {
+  width: 100%; /* Pastikan divider mengambil lebar penuh container */
+  margin: 10px 0;
+  border: 0;
+  border-top: 3px solid #444;
+}
+
+/* Media Queries*/
+/* Laptop*/
+@media (max-width: 1368px){
+  .navbar .navbar-logo img {
+      height: 47.5px; /* Tinggi logo */
+      margin-right: 8px; /* Jarak antara logo dan teks "KARBIT" */
+  }
+  
+  .subtitle {
+      font-size: 0.6rem; /* Ukuran teks subtitle */
+      color: black;
+  }
+  html {
+      font-size: 90%;
+  }
+}
+
+/* Tablet*/
+@media (max-width: 768px){
+  .navbar .navbar-logo img {
+      height: 45px; /* Tinggi logo */
+      margin-right: 8px; /* Jarak antara logo dan teks "KARBIT" */
+  }
+  .text-container {
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .title {
+      font-size: 1.5rem; /* Ukuran teks KARBIT */
+      font-weight: bold;
+  }
+  
+  .subtitle {
+      font-size: 0.75rem; /* Ukuran teks subtitle */
+      color: black;
+  }
+
+  html {
+      font-size: 75%;
+  }
+
+  #hamburger-menu{
+      display: inline-block;
+  }
+
+  .navbar .navbar-nav{
+      position: absolute;
+      top: 100%;
+      right: -100%;
+      background-color: #ffffff;
+      width: 30rem;
+      height: 100vh;
+      transition: 0.3s;
+  }
+
+  .navbar .navbar-nav.active{
+      right: 0;
+  }
+
+  .navbar .navbar-nav a{
+      color: var(--primary);
+      display: block;
+      margin: 1.5rem;
+      padding: 0.5rem;
+      font-size: 2rem;
+  }
+
+  .navbar .navbar-nav a:hover{
+      color:#34a255;
+  }
+
+  .footer-left, .footer-middle, .footer-right, .footer-bottom {
+      flex: 100%; /* Satu kolom untuk layar kecil */
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .footer-bottom {
+      text-align: center;
+  }
+
+  .footer-middle{
+      margin-bottom: 20px;
+      text-align: 5px;
+  }
+
+  .footer-right {
+      margin: 0;
+      padding-left:0;
+  }
+
+  .footer-right h3 {
+      text-align: center;
+      align-items: center;
+  }
+
+  .footer-right ul li{
+      margin-right: 0;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .logo-address {
+      flex-direction: column; /* Menempatkan alamat di bawah logo untuk layar kecil */
+      align-items: center;
+  }
+
+  .footer-right ul {
+      margin-right: 0;
+      text-align: center;
+      align-items: center;
+  }
+}
+
+/* Mobile phone*/
+@media (max-width: 576px){
+  .navbar .navbar-logo img {
+      height: 42.5px; /* Tinggi logo */
+      margin-right: 8px; /* Jarak antara logo dan teks "KARBIT" */
+  }
+  .navbar .navbar-nav a{
+    font-size: 1.25rem;
+}
+  html {
+      font-size: 75%;
+  }
+}
